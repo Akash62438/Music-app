@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music App</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #1e1e2f;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Navbar */
+  .navbar {
+    width: 100%;
+    background-color: #28293d;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar a {
+    color: #ffaa00;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    transition: color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #ff6f61;
+  }
+  
+  /* Container */
+  .container {
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    background: #28293d;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin-top: 80px; /* To make room for the navbar */
+  }
+  
+  /* Header */
+  header {
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    font-size: 1.8em;
+    color: #ff6f61;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  /* Song Metadata */
+  .song-metadata {
+    margin: 10px 0;
+  }
+  
+  .song-metadata h3 {
+    font-size: 1.2em;
+    color: #ffaa00;
+  }
+  
+  .song-metadata p {
+    font-size: 0.9em;
+    color: #ffffff;
+  }
+  
+  /* Song List */
+  .song-list {
+    margin-bottom: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .song-list h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ffaa00;
+  }
+  
+  .song-list ul {
+    list-style: none;
+  }
+  
+  .song-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #3a3b52;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+  }
+  
+  .song-list button {
+    background: #ffaa00;
+    border: none;
+    padding: 5px 10px;
+    color: #1e1e2f;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .song-list button:hover {
+    background: #ff6f61;
+  }
+  
+  /* Playback Controls */
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .control-btn {
+    font-size: 1.5em;
+    background: #ffaa00;
+    border: none;
+    padding: 10px 15px;
+    color: #1e1e2f;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .control-btn:hover {
+    background: #ff6f61;
+    transform: scale(1.1);
+  }
+  
+  /* Volume Control */
+  .volume-control {
+    margin-top: 10px;
+  }
+  
+  .volume-control input {
+    width: 80%;
+  }
+  </style>
+</head>
+
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#library">Library</a>
+  <a href="#settings">Settings</a>
+</div>
+
+<div class="container">
+  <!-- Header -->
+  <header>
+    <h1>My Music App</h1>
+  </header>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for songs..." oninput="searchSongs()">
+  </div>
+
+  <!-- Song Metadata -->
+  <div class="song-metadata">
+    <h3 id="currentSongTitle">Now Playing: None</h3>
+    <p id="currentSongArtist">Artist: Unknown</p>
+  </div>
+
+  <!-- Song List -->
+  <div class="song-list" id="library">
+    <h2>Playlist</h2>
+    <ul id="playlistContainer">
+      <li>
+        <span>🎵 Cheques - Shubh </span>
+        <button onclick="playSong('music.mp3', 'Cheques', ' Subh')">Play</button>
+      </li>
+      <li>
+        <span>🎵 King Shit - Shubh</span>
+        <button onclick="playSong('music1.mp3', 'King Shit', 'Shubh')">Play</button>
+      </li>
+      <li>
+        <span>🎵 Still Rollin - Shubh</span>
+        <button onclick="playSong('music3.mp3', 'Still Rollin', 'Shubh')">Play</button>
+      </li>
+      <li>
+        <span>🎵 Bandana - Shubh</span>
+        <button onclick="playSong('Bandana_1.mp3', 'Bandana', 'Shubh')">Play</button>
+      </li>
+      <li>
+        <span>🎵 Brownprint - AP Dhillon</span>
+        <button onclick="playSong('music4.mp3', 'Brownprint', 'AP Dhillon')">Play</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Playback Controls -->
+  <div class="controls">
+    <button class="control-btn" onclick="previousSong()">⏮️</button>
+    <button class="control-btn" onclick="togglePlayPause()">⏯️</button>
+    <button class="control-btn" onclick="nextSong()">⏭️</button>
+    <button class="control-btn" onclick="toggleShuffle()">🔀</button>
+    <button class="control-btn" onclick="toggleRepeat()">🔁</button>
+  </div>
+
+  <!-- Volume Control -->
+  <div class="volume-control">
+    <input type="range" min="0" max="1" step="0.1" value="1" onchange="setVolume(this.value)">
+  </div>
+
+  <!-- Audio Player -->
+  <audio id="audioPlayer" src=""></audio>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

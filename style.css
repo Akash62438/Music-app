@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #1e1e2f;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Navbar */
+  .navbar {
+    width: 100%;
+    background-color: #28293d;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar a {
+    color: #ffaa00;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    transition: color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #ff6f61;
+  }
+  
+  /* Container */
+  .container {
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    background: #28293d;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin-top: 80px; /* To make room for the navbar */
+  }
+  
+  /* Header */
+  header {
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    font-size: 1.8em;
+    color: #ff6f61;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  /* Song Metadata */
+  .song-metadata {
+    margin: 10px 0;
+  }
+  
+  .song-metadata h3 {
+    font-size: 1.2em;
+    color: #ffaa00;
+  }
+  
+  .song-metadata p {
+    font-size: 0.9em;
+    color: #ffffff;
+  }
+  
+  /* Song List */
+  .song-list {
+    margin-bottom: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .song-list h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ffaa00;
+  }
+  
+  .song-list ul {
+    list-style: none;
+  }
+  
+  .song-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #3a3b52;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+  }
+  
+  .song-list button {
+    background: #ffaa00;
+    border: none;
+    padding: 5px 10px;
+    color: #1e1e2f;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .song-list button:hover {
+    background: #ff6f61;
+  }
+  
+  /* Playback Controls */
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .control-btn {
+    font-size: 1.5em;
+    background: #ffaa00;
+    border: none;
+    padding: 10px 15px;
+    color: #1e1e2f;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .control-btn:hover {
+    background: #ff6f61;
+    transform: scale(1.1);
+  }
+  
+  /* Volume Control */
+  .volume-control {
+    margin-top: 10px;
+  }
+  
+  .volume-control input {
+    width: 80%;
+  }
